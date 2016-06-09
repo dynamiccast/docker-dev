@@ -13,6 +13,7 @@ RUN mkdir -p $GUACAMOLE_HOME/extensions/ && \
 
 ENV JAVA_OPTS="-Djava.library.path=/usr/local/apr/lib -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Xmx1024m -XX:MaxPermSize=512m -XX:+UseConcMarkSweepGC"
 
+COPY ./noauth-config.xml /etc/guacamole/noauth-config.xml
 COPY ./guacamole.properties /etc/guacamole/guacamole.properties
 
 EXPOSE 8080
