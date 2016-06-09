@@ -1,0 +1,34 @@
+version: "2"
+
+services:
+  guacamole-client:
+    build:
+      context: ./guacamole-client
+    image: human-apps/guacamole-client
+    ports:
+      - 8080:8080
+    networks:
+      - human-apps
+    restart: always
+
+  guacd:
+    image: glyptodon/guacd
+    networks:
+      - human-apps
+    restart: always
+
+  ubuntu-qemu:
+    build:
+      context: ./ubuntu-qemu
+    image: human-apps/ubuntu-qemu
+    volumes:
+      - ./ubuntu-qemu/ubuntu.qcow2:/ubuntu.qcow2
+    devices:
+      - /dev/kvm
+    networks:
+      - human-apps
+    restart: always
+
+networks:
+  human-apps:
+    driver: bridge
