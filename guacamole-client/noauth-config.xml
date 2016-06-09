@@ -1,6 +1,6 @@
 <configs>
   <config name="localhost" protocol="vnc">
-    <param name="hostname" value="localhost" />
+    <param name="hostname" value="ubuntu-qemu" />
     <param name="port" value="5902" />
   </config>
 </configs>

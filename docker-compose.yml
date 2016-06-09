@@ -7,12 +7,14 @@ services:
     image: human-apps/guacamole-client
     ports:
       - 8080:8080
-    network_mode: "host"
+    networks:
+      - human-apps
     restart: always
 
   guacd:
     image: glyptodon/guacd
-    network_mode: "host"
+    networks:
+      - human-apps
     restart: always
 
   ubuntu-qemu:
@@ -23,4 +25,10 @@ services:
       - ./ubuntu-qemu/ubuntu.qcow2:/ubuntu.qcow2
     devices:
       - /dev/kvm
+    networks:
+      - human-apps
     restart: always
+
+networks:
+  human-apps:
+    driver: bridge
