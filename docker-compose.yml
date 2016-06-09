@@ -14,3 +14,13 @@ services:
     image: glyptodon/guacd
     network_mode: "host"
     restart: always
+
+  ubuntu-qemu:
+    build:
+      context: ./ubuntu-qemu
+    image: human-apps/ubuntu-qemu
+    volumes:
+      - ./ubuntu-qemu/ubuntu.qcow2:/ubuntu.qcow2
+    devices:
+      - /dev/kvm
+    restart: always
