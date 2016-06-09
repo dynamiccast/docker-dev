@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  guacamole-client:
+    build:
+      context: ./guacamole-client
+    image: human-app/guacamole-client
+    ports:
+      - 8080:8080
+    network_mode: "host"
+    restart: always
+
+  guacd:
+    image: glyptodon/guacd
+    network_mode: "host"
+    restart: always
