@@ -6,3 +6,20 @@ Docker is ofter used to ease application shipping. It can also be used to limit 
 This repository contains an application example called human-apps with a complex stack to illustrate how years old projects can get complex over time. Docker is used extensivelly for both production shipping and development purpose.
 
 This application is not really useful. It uses Qemu to boot an Ubuntu virtual machine and will offer users access to the VM interface via a web page using Apache Guacamole and its vnc driver. Users will then be able to run applications by clicking icons from the web UI and interact with them in a HTML 5 canvas.
+
+# Build Ubuntu
+
+You can build a compatible Ubuntu image from scratch using packer.
+
+Requirements:
+- packer
+- qemu
+- about 20 minutes
+
+Just run `build.sh` from the `ubuntu-qemu` directory:
+
+````
+./build.sh
+````
+
+The qcow2 artifact will be stored in `ubuntu-qemu\output-ubuntu1604-desktop-qemu\ubuntu1604-desktop.qcow2` and just be copied in `ubuntu-qemu\ubuntu.qcow2`.
