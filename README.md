@@ -16,7 +16,7 @@ Requirements:
 - qemu
 - about 20 minutes
 
-Just run `build.sh` from the `VM` directory:
+Just run `build.sh` from the `ubuntu-qemu` directory:
 
 ````
 ./build.sh
