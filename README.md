@@ -21,3 +21,5 @@ Just run `build.sh` from the `ubuntu-qemu` directory:
 ````
 ./build.sh
 ````
+
+The qcow2 artifact will be stored in `ubuntu-qemu\output-ubuntu1604-desktop-qemu\ubuntu1604-desktop.qcow2` and just be copied in `ubuntu-qemu\ubuntu.qcow2`.
