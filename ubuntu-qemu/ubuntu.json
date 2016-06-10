@@ -28,7 +28,7 @@
 		"{{ user `iso_url` }}"
 	    ],
 	    "output_directory": "output-{{ user `vm_name` }}-qemu-iso.qcow2",
-	    "vm_name": "{{user `vm_name`}}",
+	    "vm_name": "{{user `vm_name`}}.qcow2",
 	    "name": "ubuntu1604-desktop-qemu",
 	    "headless": true,
 	    "type": "qemu",
