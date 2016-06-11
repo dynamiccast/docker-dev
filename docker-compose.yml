@@ -34,7 +34,7 @@ services:
       context: ./backend
     image: human-apps/backend
     ports:
-      - 80:3000
+      - 3000:3000
     networks:
       - human-apps
     restart: always
