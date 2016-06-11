@@ -37,6 +37,26 @@ app.get('/apps', function (req, res) {
 
 });
 
+app.post('/app/*', function(req, res) {
+
+  // We want to sleep to give time to the app to launch before closing SSH connection
+  exec('(env DISPLAY=:0 nohup ' + req.params[0] + ' &) ; sleep 3', {
+    user: USERNAME,
+    host: HOST,
+    password: PASSWORD
+  }, function(err, stdout, stderr) {
+
+    if (err) {
+      return res.status(500).send({
+	error: err,
+	stderr: stderr
+      });
+    }
+
+    return res.send(stdout);
+  });
+});
+
 app.get('/', function (req, res) {
 
   exec('uname -a', {
