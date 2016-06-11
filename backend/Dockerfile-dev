@@ -1,6 +1,9 @@
 FROM human-apps/backend
 MAINTAINER Olivier Berthonneau <berthonneau.olivier@gmail.com>
 
-RUN npm install forever -g
+RUN npm install forever node-inspector -g
 
-CMD ["forever", "-w", "index.js"]
+EXPOSE 5858
+EXPOSE 8081
+
+CMD (node-inspector --web-port=8081 &) ; forever -w -c 'node --debug' index.js

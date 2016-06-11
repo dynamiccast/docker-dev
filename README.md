@@ -6,6 +6,7 @@ Docker is ofter used to ease application shipping. It can also be used to limit 
 Docker development containers can be used to quickly start the application in an environment suitable for development and tests. Ran in dev mode, containers will provide the following features:
 
 - Code live reload on modification
+- Node in debug mode for the backend
 
 This repository contains an application example called human-apps with a complex stack to illustrate how years old projects can get complex over time. Docker is used extensivelly for both production shipping and development purpose.
 
