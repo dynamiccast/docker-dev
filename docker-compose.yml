@@ -39,6 +39,16 @@ services:
       - human-apps
     restart: always
 
+  frontend:
+    build:
+      context: ./frontend
+    image: human-apps/frontend
+    ports:
+      - 80:4200
+    networks:
+      - human-apps
+    restart: always
+
 networks:
   human-apps:
     driver: bridge
