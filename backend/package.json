@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dynamiccast/docker-dev#readme",
   "dependencies": {
+    "express": "^4.13.4",
     "ssh-exec": "^2.0.0"
   }
 }
