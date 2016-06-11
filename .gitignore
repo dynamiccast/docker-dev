@@ -1,3 +1,4 @@
 ubuntu-qemu/ubuntu.qcow2
 ubuntu-qemu/packer_cache
 ubuntu-qemu/output-ubuntu1604-desktop-qemu
+backend/node_modules
