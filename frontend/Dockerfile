@@ -19,4 +19,4 @@ COPY ./ /opt/
 
 EXPOSE 4242
 
-CMD ["ember", "serve", "--environment", "production"]
+CMD ["ember", "serve", "--environment", "production", "--live-reload", "false"]
