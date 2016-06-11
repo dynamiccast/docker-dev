@@ -26,6 +26,9 @@ services:
     image: human-apps/backend:dev
     volumes:
       - ./backend:/opt
+    ports:
+      - 5858:5858
+      - 8081:8081
 
 networks:
   human-apps:
