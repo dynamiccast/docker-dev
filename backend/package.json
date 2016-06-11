@@ -1,0 +1,23 @@
+{
+  "name": "human-apps-server",
+  "version": "1.0.0",
+  "description": "Human apps backend for communication with the underlying Ubuntu Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dynamiccast/docker-dev.git"
+  },
+  "author": "Olivier Berthonneau <berthonneau.olivier@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dynamiccast/docker-dev/issues"
+  },
+  "homepage": "https://github.com/dynamiccast/docker-dev#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "ssh-exec": "^2.0.0"
+  }
+}

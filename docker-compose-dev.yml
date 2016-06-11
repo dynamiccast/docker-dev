@@ -1,0 +1,32 @@
+version: "2"
+
+services:
+  guacamole-client:
+    extends:
+      file: ./docker-compose.yml
+      service: guacamole-client
+
+  guacd:
+    extends:
+      file: ./docker-compose.yml
+      service: guacd
+
+  ubuntu-qemu:
+    extends:
+      file: ./docker-compose.yml
+      service: ubuntu-qemu
+
+  backend:
+    extends:
+      file: ./docker-compose.yml
+      service: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-dev
+    image: human-apps/backend:dev
+    volumes:
+      - ./backend:/opt
+
+networks:
+  human-apps:
+    driver: bridge

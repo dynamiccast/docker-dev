@@ -1,0 +1,6 @@
+FROM human-apps/backend
+MAINTAINER Olivier Berthonneau <berthonneau.olivier@gmail.com>
+
+RUN npm install forever -g
+
+CMD ["forever", "-w", "index.js"]
