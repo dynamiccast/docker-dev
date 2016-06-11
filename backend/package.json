@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dynamiccast/docker-dev/issues"
   },
-  "homepage": "https://github.com/dynamiccast/docker-dev#readme"
+  "homepage": "https://github.com/dynamiccast/docker-dev#readme",
+  "dependencies": {
+    "ssh-exec": "^2.0.0"
+  }
 }
