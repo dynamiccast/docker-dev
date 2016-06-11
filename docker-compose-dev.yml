@@ -30,6 +30,19 @@ services:
       - 5858:5858
       - 8081:8081
 
+  frontend:
+    extends:
+      file: ./docker-compose.yml
+      service: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-dev
+    image: human-apps/frontend:dev
+    volumes:
+      - ./frontend:/opt
+    ports:
+      - 49152:49152
+
 networks:
   human-apps:
     driver: bridge

@@ -1,0 +1,4 @@
+FROM human-apps/frontend
+MAINTAINER Olivier Berthonneau <berthonneau.olivier@gmail.com>
+
+CMD cp -r /tmp/node_modules /opt/node_modules && cp -r /tmp/bower_components /opt/bower_components && ember serve
