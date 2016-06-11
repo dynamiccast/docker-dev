@@ -11,6 +11,26 @@ This repository contains an application example called human-apps with a complex
 
 This application is not really useful. It uses Qemu to boot an Ubuntu virtual machine and will offer users access to the VM interface via a web page using Apache Guacamole and its vnc driver. Users will then be able to run applications by clicking icons from the web UI and interact with them in a HTML 5 canvas.
 
+# Run Human-apps
+
+Just start the containers with docker-compose:
+
+````
+docker-compose build
+docker-compose up -d
+````
+
+Application will be accessible at *http://localhost*
+
+# Run in dev mode
+
+This is the main purpose of this repo. Simply run:
+
+````
+docker-compose -f docker-compose-dev.yml build
+docker-compose -f docker-compose-dev.yml up -d
+````
+
 # Build Ubuntu
 
 You can build a compatible Ubuntu image from scratch using packer.
