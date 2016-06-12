@@ -20,5 +20,16 @@ export default Ember.Component.extend({
 	});
       }
     });
-  }.on('init')
+  }.on('init'),
+
+  actions: {
+
+    run: function(appPath) {
+
+      Ember.$.ajax({
+	type: "POST",
+	url: "http://localhost:3000/app/" + appPath
+      });
+    }
+  }
 });
