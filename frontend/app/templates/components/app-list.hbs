@@ -1,6 +1,9 @@
-{{#each appList as | app | }}
+<ul class="appList">
+  {{#each appList as | app | }}
 
-{{log app.appName}}
-{{log app.appPath}}
+  <li>
+    <h3 class="name">{{app.appName}}</h3>
+  </li>
 
-{{/each}}
+  {{/each}}
+</ul>

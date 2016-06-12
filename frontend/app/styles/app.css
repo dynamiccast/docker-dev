@@ -2,3 +2,7 @@
     width: 1024px;
     height: 768px;
 }
+
+.appList {
+    float: right;
+}
