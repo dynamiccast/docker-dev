@@ -13,6 +13,11 @@ body {
     margin:0;
     padding:0;
 }
+
+h1 {
+    color: #E1DAD0;
+}
+
 .ubuntu-qemu {
     width: 1024px;
     height: 768px;
