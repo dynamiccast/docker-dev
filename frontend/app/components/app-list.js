@@ -28,7 +28,7 @@ export default Ember.Component.extend({
 
       Ember.$.ajax({
 	type: "POST",
-	url: "http://localhost:3000/app/" + appPath
+	url: "http://localhost:3000/app/" + btoa(appPath)
       });
     }
   }
