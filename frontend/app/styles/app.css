@@ -5,4 +5,12 @@
 
 .appList {
     float: right;
+    max-height: 800px;
+    overflow: auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
