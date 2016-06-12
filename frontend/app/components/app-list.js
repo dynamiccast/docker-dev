@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
     Ember.$.ajax({
       type: "GET",
-      url: "http://localhost:3000/apps",
+      url: "http://localhost:3000/apps"
     }).then((response) => {
 
       this.get('appList').set('content', []);
