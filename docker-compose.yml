@@ -33,8 +33,8 @@ services:
     build:
       context: ./backend
     image: human-apps/backend
-    ports:
-      - 3000:3000
+    volumes_from:
+      - frontend
     networks:
       - human-apps
     restart: always
@@ -43,11 +43,21 @@ services:
     build:
       context: ./frontend
     image: human-apps/frontend
-    ports:
-      - 80:4200
     networks:
       - human-apps
     restart: always
+
+  proxy:
+    build: ./nginx
+    ports:
+      - 80:80
+    image: human-apps/proxy
+    depends_on:
+      - backend
+    restart: always
+    container_name: "proxy"
+    networks:
+      - human-apps
 
 networks:
   human-apps:

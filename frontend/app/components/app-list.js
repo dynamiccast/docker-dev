@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
     Ember.$.ajax({
       type: "GET",
-      url: "http://localhost:3000/apps"
+      url: "/apps"
     }).then((response) => {
 
       this.get('appList').set('content', []);
@@ -28,7 +28,7 @@ export default Ember.Component.extend({
 
       Ember.$.ajax({
 	type: "POST",
-	url: "http://localhost:3000/app/" + btoa(appPath)
+	url: "/app/" + btoa(appPath)
       });
     }
   }

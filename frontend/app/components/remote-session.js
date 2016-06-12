@@ -34,7 +34,7 @@ export default Ember.Component.extend({
 
   initCanvas: function() {
 
-    Ember.$.get("http://localhost:3000/token/", (token) => {
+    Ember.$.get("/token/", (token) => {
 
       token = JSON.parse(token);
       // Get display div from document
@@ -42,7 +42,7 @@ export default Ember.Component.extend({
 
       // Instantiate client, using an HTTP tunnel for communications.
       var guac = new Guacamole.Client(
-	new Guacamole.WebSocketTunnel("ws://localhost:8080/guacamole/websocket-tunnel?" + this._forgeConnectionString(token.authToken))
+	new Guacamole.WebSocketTunnel("/guacamole/websocket-tunnel?" + this._forgeConnectionString(token.authToken))
       );
 
       // Add client to display div

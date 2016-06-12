@@ -20,19 +20,22 @@ services:
     container_name: ubuntu-qemu
 
   backend:
-    extends:
-      file: ./docker-compose.yml
-      service: backend
     build:
       context: ./backend
       dockerfile: Dockerfile-dev
     image: human-apps/backend:dev
+    volumes_from:
+      - frontend
     volumes:
       - ./backend:/opt
+    networks:
+      - human-apps
     ports:
+      - 3000:3000
       - 5858:5858
       - 8081:8081
     container_name: backend
+    restart: always
 
   frontend:
     extends:
@@ -46,7 +49,20 @@ services:
       - ./frontend:/opt
     ports:
       - 49152:49152
+      - 4200:4200
     container_name: frontend
+
+  proxy:
+    build: ./nginx
+    ports:
+      - 80:80
+    image: human-apps/proxy
+    depends_on:
+      - backend
+    restart: always
+    container_name: "proxy"
+    networks:
+      - human-apps
 
 networks:
   human-apps:
