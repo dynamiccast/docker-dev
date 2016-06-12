@@ -2,7 +2,7 @@
   {{#each appList as | app | }}
 
   <li>
-    <h3 {{action 'run' app.appPath }} class="name">{{app.appName}}</h3>
+    <p {{action 'run' app.appPath }} class="name">{{app.appName}}</p>
   </li>
 
   {{/each}}
