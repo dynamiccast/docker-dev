@@ -18,7 +18,7 @@ export default Ember.Component.extend({
 	  appName: appName,
 	  appPath: response[appName]
 	});
-      };
+      }
     });
   }.on('init')
 });
