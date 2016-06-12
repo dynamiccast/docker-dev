@@ -6,6 +6,12 @@ var HOST = "ubuntu-qemu";
 var USERNAME = "vagrant";
 var PASSWORD = "vagrant";
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.get('/apps', function (req, res) {
 
   exec('for app in /usr/share/applications/*.desktop ; do app="${app##/*/}"; echo -n "${app::-8}=" && cat /usr/share/applications/${app::-8}.desktop | grep \'^Exec\' | head -n1 | cut -d \'=\' -f 2 ; done', {
