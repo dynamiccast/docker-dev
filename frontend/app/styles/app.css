@@ -1,3 +1,18 @@
+html {
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(141deg, #514338 0%, #742567 51%, #962e47 75%);
+}
+
+body {
+    overflow:hidden;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+}
 .ubuntu-qemu {
     width: 1024px;
     height: 768px;
