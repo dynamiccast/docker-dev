@@ -12,6 +12,10 @@ module.exports = function(defaults) {
     prepend: true
   });
 
+  app.import('vendor/Ubuntu-R.ttf', {
+    destDir: 'fonts'
+  });
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
