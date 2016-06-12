@@ -19,6 +19,10 @@ h1 {
     color: #E1DAD0;
 }
 
+.title {
+    margin-left: 10px;
+}
+
 .ubuntu-qemu {
     width: 1024px;
     height: 768px;
