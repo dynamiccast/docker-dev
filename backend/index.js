@@ -1,5 +1,7 @@
 var express = require('express');
+var http = require('http');
 var exec = require('ssh-exec');
+var execSync = require('child_process').execSync;
 var atob = require('atob');
 var app = express();
 
@@ -11,6 +13,13 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
+});
+
+app.get('/token', function (req, res) {
+
+  var cmd = execSync("curl 'http://guacamole-client:8080/guacamole/api/tokens' --data ''");
+
+  res.send(cmd.toString());
 });
 
 app.get('/apps', function (req, res) {
