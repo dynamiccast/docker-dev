@@ -1,10 +1,26 @@
 var express = require('express');
+var http = require('http');
 var exec = require('ssh-exec');
+var execSync = require('child_process').execSync;
+var atob = require('atob');
 var app = express();
 
 var HOST = "ubuntu-qemu";
 var USERNAME = "vagrant";
 var PASSWORD = "vagrant";
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get('/token', function (req, res) {
+
+  var cmd = execSync("curl 'http://guacamole-client:8080/guacamole/api/tokens' --data ''");
+
+  res.send(cmd.toString());
+});
 
 app.get('/apps', function (req, res) {
 
@@ -40,7 +56,7 @@ app.get('/apps', function (req, res) {
 app.post('/app/*', function(req, res) {
 
   // We want to sleep to give time to the app to launch before closing SSH connection
-  exec('(env DISPLAY=:0 nohup ' + req.params[0] + ' &) ; sleep 3', {
+  exec('(env DISPLAY=:0 nohup ' + atob(req.params[0]) + ' &) ; sleep 3', {
     user: USERNAME,
     host: HOST,
     password: PASSWORD

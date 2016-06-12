@@ -1,0 +1,11 @@
+<ul class="appList">
+  <li><h2>Applications</h2></li>
+
+  {{#each appList as | app | }}
+
+  <li>
+    <p {{action 'run' app.appPath }} class="appName">{{app.appName}}</p>
+  </li>
+
+  {{/each}}
+</ul>

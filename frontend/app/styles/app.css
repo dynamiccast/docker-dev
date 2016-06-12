@@ -1,0 +1,51 @@
+html {
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(141deg, #514338 0%, #742567 51%, #962e47 75%);
+    font-family: 'Ubuntu'
+}
+
+body {
+    overflow:hidden;
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    color: #E1DAD0;
+}
+
+.title {
+    margin-left: 10px;
+}
+
+.ubuntu-qemu {
+    width: 1024px;
+    height: 768px;
+}
+
+.appList {
+    background-color: #41403B;
+    color: #E1DAD0;
+    padding-left: 20px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    overflow: auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.appName {
+    cursor: pointer;
+    cursor: hand;
+}
