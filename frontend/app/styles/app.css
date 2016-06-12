@@ -24,8 +24,13 @@ h1 {
 }
 
 .appList {
-    float: right;
-    max-height: 800px;
+    background-color: #41403B;
+    color: #E1DAD0;
+    padding-left: 20px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
     overflow: auto;
 }
 
