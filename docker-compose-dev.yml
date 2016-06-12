@@ -5,16 +5,19 @@ services:
     extends:
       file: ./docker-compose.yml
       service: guacamole-client
+    container_name: guacamole-client
 
   guacd:
     extends:
       file: ./docker-compose.yml
       service: guacd
+    container_name: guacd
 
   ubuntu-qemu:
     extends:
       file: ./docker-compose.yml
       service: ubuntu-qemu
+    container_name: ubuntu-qemu
 
   backend:
     extends:
@@ -29,6 +32,7 @@ services:
     ports:
       - 5858:5858
       - 8081:8081
+    container_name: backend
 
   frontend:
     extends:
@@ -42,6 +46,7 @@ services:
       - ./frontend:/opt
     ports:
       - 49152:49152
+    container_name: frontend
 
 networks:
   human-apps:
