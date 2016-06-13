@@ -22,7 +22,7 @@ services:
       context: ./ubuntu-qemu
     image: human-apps/ubuntu-qemu
     volumes:
-      - ./ubuntu-qemu/ubuntu.qcow2:/ubuntu.qcow2
+      - ./ubuntu-qemu/images:/images
     devices:
       - /dev/kvm
     networks:
