@@ -49,3 +49,7 @@ ul {
     cursor: pointer;
     cursor: hand;
 }
+
+.error {
+    color: white;
+}

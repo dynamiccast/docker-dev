@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+  error: false,
+
   _forgeConnectionString: function(token) {
 
     var width = 800;
@@ -50,8 +52,8 @@ export default Ember.Component.extend({
 
       // Error handler
       guac.onerror = function(error) {
-	alert(error);
-      };
+	this.set("error", true);
+      }.bind(this);
 
       // Mouse
       var mouse = new Guacamole.Mouse(guac.getDisplay().getElement());

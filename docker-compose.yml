@@ -27,7 +27,6 @@ services:
       - /dev/kvm
     networks:
       - human-apps
-    restart: always
 
   backend:
     build:
