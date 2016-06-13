@@ -51,6 +51,7 @@ services:
       - 49152:49152
       - 4200:4200
     container_name: frontend
+    restart: always
 
   proxy:
     build: ./nginx
