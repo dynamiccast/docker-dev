@@ -7,6 +7,7 @@ Docker development containers can be used to quickly start the application in an
 
 - Code live reload on modification
 - Node in debug mode for the backend
+- Code is no uglify in frontend
 
 This repository contains an application example called human-apps with a complex stack to illustrate how years old projects can get complex over time. Docker is used extensivelly for both production shipping and development purpose.
 
