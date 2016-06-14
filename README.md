@@ -17,7 +17,15 @@ This application is not really useful. It uses Qemu to boot an Ubuntu virtual ma
 
 # Run Human-apps
 
-Just start the containers with docker-compose:
+Human-apps needs a Qemu disk image to run the VM. You can download an image with this command :
+
+````
+wget http://olivierberthonneau.com/human-apps/ubuntu.qcow2 -O ubuntu-qemu/images/ubuntu.qcow2
+````
+
+(Please refer to the build Ubuntu section to build it from scratch).
+
+Then just start the containers with docker-compose:
 
 ````
 docker-compose build
@@ -38,6 +46,8 @@ docker-compose -f docker-compose-dev.yml up -d
 # Build Ubuntu
 
 You can build a compatible Ubuntu image from scratch using packer.
+
+A compatible image is just a Linux operating system with applications .desktop in /usr/share/applications with a user `vagrant` with password `vagrant`.
 
 Requirements:
 - packer
