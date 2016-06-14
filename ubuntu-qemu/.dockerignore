@@ -1,2 +1,3 @@
-ubuntu.qcow2
 packer_cache
+images/
+output-ubuntu1604-desktop-qemu-iso.qcow2/
