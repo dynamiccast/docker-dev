@@ -15,6 +15,8 @@ This application is not really useful. It uses Qemu to boot an Ubuntu virtual ma
 
 ![Alt text](/screenshot.png?raw=true "Human-apps screenshot")
 
+More information on Docker development containers can be found in the [wiki](https://github.com/dynamiccast/docker-dev/wiki).
+
 # Run Human-apps
 
 Human-apps needs a Qemu disk image to run the VM. You can download an image with this command :
