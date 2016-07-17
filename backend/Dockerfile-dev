@@ -6,4 +6,4 @@ RUN npm install forever node-inspector -g
 EXPOSE 5858
 EXPOSE 8081
 
-CMD (node-inspector --web-port=8081 &) ; forever -w -c 'node --debug' index.js
+CMD npm install ; (node-inspector --web-port=8081 &) ; forever -w -c 'node --debug' index.js
