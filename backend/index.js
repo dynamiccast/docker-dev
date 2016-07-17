@@ -29,6 +29,7 @@ app.get('/apps', function (req, res) {
   exec('for app in /usr/share/applications/*.desktop ; do app="${app##/*/}"; echo -n "${app::-8}=" && cat /usr/share/applications/${app::-8}.desktop | grep \'^Exec\' | head -n1 | cut -d \'=\' -f 2 ; done', {
     user: USERNAME,
     host: HOST,
+    port: 2222,
     password: PASSWORD
   }, function(err, stdout, stderr) {
 
@@ -61,6 +62,7 @@ app.post('/app/*', function(req, res) {
   exec('(env DISPLAY=:0 nohup ' + atob(req.params[0]) + ' &) ; sleep 3', {
     user: USERNAME,
     host: HOST,
+    port: 2222,
     password: PASSWORD
   }, function(err, stdout, stderr) {
 
@@ -80,6 +82,7 @@ app.get('/', function (req, res) {
   exec('uname -a', {
     user: USERNAME,
     host: HOST,
+    port: 2222,
     password: PASSWORD
   }, function(err, stdout, stderr) {
 
