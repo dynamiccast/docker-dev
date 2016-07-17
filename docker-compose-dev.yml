@@ -2,21 +2,31 @@ version: "2"
 
 services:
   guacamole-client:
-    extends:
-      file: ./docker-compose.yml
-      service: guacamole-client
+    build:
+      context: ./guacamole-client
+    image: human-apps/guacamole-client
+    volumes:
+       - ./guacamole-client/guacamole.dev.properties:/etc/guacamole/guacamole.properties:ro
+       - ./guacamole-client/noauth-config.dev.xml:/etc/guacamole/noauth-config.xml:ro
+    ports:
+      - 8080:8080
+    network_mode: host
     container_name: guacamole-client
 
   guacd:
-    extends:
-      file: ./docker-compose.yml
-      service: guacd
+    image: glyptodon/guacd
+    network_mode: host
     container_name: guacd
 
   ubuntu-qemu:
-    extends:
-      file: ./docker-compose.yml
-      service: ubuntu-qemu
+    build:
+      context: ./ubuntu-qemu
+    image: human-apps/ubuntu-qemu
+    volumes:
+      - ./ubuntu-qemu/images:/images
+    devices:
+      - /dev/kvm
+    network_mode: host
     container_name: ubuntu-qemu
 
   backend:
@@ -28,19 +38,17 @@ services:
       - frontend
     volumes:
       - ./backend:/opt
-    networks:
-      - human-apps
     ports:
       - 3000:3000
       - 5858:5858
       - 8081:8081
+    network_mode: host
     container_name: backend
-    restart: always
+    environment:
+      - UBUNTU_HOST=localhost
+      - GUACAMOLE_HOST=localhost
 
   frontend:
-    extends:
-      file: ./docker-compose.yml
-      service: frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile-dev
@@ -51,20 +59,16 @@ services:
       - 49152:49152
       - 4200:4200
     container_name: frontend
-    restart: always
+    network_mode: host
 
   proxy:
     build: ./nginx
     ports:
       - 80:80
     image: human-apps/proxy
+    volumes:
+       - ./nginx/nginx.dev.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - backend
-    restart: always
     container_name: "proxy"
-    networks:
-      - human-apps
-
-networks:
-  human-apps:
-    driver: bridge
+    network_mode: host

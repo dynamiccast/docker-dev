@@ -5,7 +5,8 @@ var execSync = require('child_process').execSync;
 var atob = require('atob');
 var app = express();
 
-var HOST = "ubuntu-qemu";
+var HOST = process.env.UBUNTU_HOST || "ubuntu-qemu";
+var GUACAMOLE_HOST = process.env.GUACAMOLE_HOST || "guacamole-client";
 var USERNAME = "vagrant";
 var PASSWORD = "vagrant";
 
@@ -19,7 +20,7 @@ app.use(function(req, res, next) {
 
 app.get('/token', function (req, res) {
 
-  var cmd = execSync("curl 'http://guacamole-client:8080/guacamole/api/tokens' --data ''");
+  var cmd = execSync("curl 'http://" + GUACAMOLE_HOST + ":8080/guacamole/api/tokens' --data ''");
 
   res.send(cmd.toString());
 });

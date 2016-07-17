@@ -37,6 +37,9 @@ services:
     networks:
       - human-apps
     restart: always
+    environment:
+      - UBUNTU_HOST=ubuntu-qemu
+      - GUACAMOLE_HOST=guacamole-client
 
   frontend:
     build:
