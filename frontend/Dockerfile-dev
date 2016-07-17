@@ -4,4 +4,7 @@ MAINTAINER Olivier Berthonneau <berthonneau.olivier@gmail.com>
 ENV EMBER_CLI_INJECT_LIVE_RELOAD_BASEURL=https://localhost:4200/
 ENV EMBER_CLI_INJECT_LIVE_RELOAD_PORT=49152
 
-CMD cp -r /tmp/node_modules /opt/node_modules && cp -r /tmp/bower_components /opt/bower_components && ember serve --live-reload-port 49152
+CMD cp -r /tmp/node_modules /opt/node_modules && \
+    cp -r /tmp/bower_components /opt/bower_components && \
+    ember build --environment=development && \
+    ember serve --live-reload-port 49152
