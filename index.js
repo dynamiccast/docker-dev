@@ -10,7 +10,7 @@ var GUACAMOLE_HOST = process.env.GUACAMOLE_HOST || "guacamole-client";
 var USERNAME = "vagrant";
 var PASSWORD = "vagrant";
 
-app.use(express.static('dist'));
+app.use(express.static('frontend/dist'));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -36,8 +36,8 @@ app.get('/apps', function (req, res) {
 
     if (err) {
       return res.status(500).send({
-	error: err,
-	stderr: stderr
+        error: err,
+        stderr: stderr
       });
     }
 
@@ -69,8 +69,8 @@ app.post('/app/*', function(req, res) {
 
     if (err) {
       return res.status(500).send({
-	error: err,
-	stderr: stderr
+        error: err,
+        stderr: stderr
       });
     }
 
@@ -89,8 +89,8 @@ app.get('/', function (req, res) {
 
     if (err) {
       return res.status(500).send({
-	error: err,
-	stderr: stderr
+        error: err,
+        stderr: stderr
       });
     }
 

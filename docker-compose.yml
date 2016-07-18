@@ -30,7 +30,7 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./
     image: human-apps/backend
     volumes_from:
       - frontend
