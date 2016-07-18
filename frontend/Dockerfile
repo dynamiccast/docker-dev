@@ -17,6 +17,4 @@ RUN cp -a /tmp/bower_components /opt/
 
 COPY ./ /opt/
 
-RUN ./node_modules/ember-cli/bin/ember build --environment=production
-
-VOLUME ["/opt/dist"]
+CMD ./node_modules/ember-cli/bin/ember build --environment=production

@@ -31,13 +31,11 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./
       dockerfile: Dockerfile-dev
     image: human-apps/backend:dev
-    volumes_from:
-      - frontend
     volumes:
-      - ./backend:/opt
+      - ./:/opt
     ports:
       - 3000:3000
       - 5858:5858

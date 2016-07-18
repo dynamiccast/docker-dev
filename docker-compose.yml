@@ -30,10 +30,10 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./
     image: human-apps/backend
-    volumes_from:
-      - frontend
+    volumes:
+      - static:/opt/frontend/dist
     networks:
       - human-apps
     restart: always
@@ -47,6 +47,8 @@ services:
     image: human-apps/frontend
     networks:
       - human-apps
+    volumes:
+      - static:/opt/dist
 
   proxy:
     build: ./nginx
@@ -63,3 +65,7 @@ services:
 networks:
   human-apps:
     driver: bridge
+
+volumes:
+  static:
+    driver: local

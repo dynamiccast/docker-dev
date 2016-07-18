@@ -1,4 +1,7 @@
 ubuntu-qemu/images/ubuntu.qcow2
 ubuntu-qemu/packer_cache
-ubuntu-qemu/output-ubuntu1604-desktop-qemu
-backend/node_modules
+ubuntu-qemu/output-ubuntu1604-desktop-qemu-iso.qcow2
+node_modules
+frontend/dist
+frontend/bower_components
+frontend/node_modules

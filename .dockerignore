@@ -1,0 +1,12 @@
+node_modules/
+frontend/node_modules/
+frontend/bower_components/
+frontend/tmp/
+ubuntu-qemu/
+nginx/
+.git
+.gitignore
+LICENSE
+README.md
+docker-compose.yml
+docker-compose-dev.yml
